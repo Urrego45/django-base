@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+
+  db:
+    container_name: django-db
+    image: postgres:16.1-alpine
+    env_file:
+      - .env
+    volumes:
+      - django-postgres:/var/lib/postgresql
+    ports:
+      - ${POSTGRES_PORT}:5432
+
+  python:
+    container_name: django-api
+    build:
+      context: backend
+      args:
+        PYTHON_REQUIREMENTS_PATH: requirements.txt
+    depends_on:
+      - db
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app
+
+volumes:
+  django-postgres:
