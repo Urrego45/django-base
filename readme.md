@@ -1,5 +1,3 @@
-
-
 POSTGRES_PASSWORD=password
 POSTGRES_USER=postgres
 POSTGRES_DB=djangodb
@@ -8,7 +6,3 @@ POSTGRES_HOST=django-db
 POSTGRES_SSL_MODE=disable
 
 
-## django environment
-DJANGO_SECRET_KEY='put your secret key'
-DJANGO_DEBUG=1
-DJANGO_ALLOWED_HOSTS=*
